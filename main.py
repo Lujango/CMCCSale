@@ -77,12 +77,14 @@ def savefile(title,content):
 
 
 if __name__ == "__main__":
-    print "begin"
-    content = getdata(1,20)
+    print "开始获取数据......"
+    pagenum = int(raw_input("请输入要获取的页数!(输入数字)"))
+    print pagenum
+    content = getdata(pagenum,20)
     content = content.decode('utf-8')
     removeall()
     for item in dealdata(content):
-        #savefile(item[2],getcontent(getinfo(item[0])))
+        savefile(item[2],getcontent(getinfo(item[0])))
         print "已写入",item[0],item[1],item[2],item[3]
 
 
