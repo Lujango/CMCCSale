@@ -1,0 +1,11 @@
+page.currentPage=1
+page.perPageSize=20
+noticeBean.sourceCH
+noticeBean.source
+noticeBean.title
+noticeBean.startDate
+noticeBean.endDate
+http://b2b.10086.cn/b2b/main/listVendorNoticeResult.html?noticeBean.noticeType=2
+noticeBean.noticeType=2
+
+http://b2b.10086.cn/b2b/main/viewNoticeContent.html?noticeBean.id=252275
