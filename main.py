@@ -4,6 +4,7 @@ import urllib
 import urllib2
 import re
 
+
 __author__ = 'pro'
 
 
@@ -33,8 +34,6 @@ def dealdata(content):
     items = re.findall(pattern,content)
     print len(items)
     return items
-    #for item in items:
-    #    print item[0],item[1],item[2],item[3]
 
 
  # 获取文章详细信息
@@ -44,7 +43,6 @@ def getcontent(content):
     results = re.findall(pattern,content)
     for result in results:
         str = str+result+"\n"
-        print result
     pattern = re.compile('<span style="font-size: 16px;margin-left:16px;">(.*?)</span>     </div>     </td>   </tr></table></div>',re.S)
     results = re.findall(pattern,content)
     for result in results:
@@ -54,7 +52,6 @@ def getcontent(content):
             .replace('<span style="font-weight: bold;font-size: 16px;font-weight: bold;">','\n').replace('<span style="font-size: 16px;">','')\
             .replace('<a href="http://b2b.10086.cn/">（http://b2b.10086.cn）</a>','').replace('<span style="font-size:16px;float:right; clear:both;">','\n')
         str = str+result+"\n"
-        print result
     return str
 
 
@@ -73,13 +70,19 @@ def removeall():
         os.remove('result/'+eachFile)
 
 
+def savefile(title,content):
+    f=open('result/'+title+'.txt','w')
+    f.write(content)
+    f.close()
+
+
 if __name__ == "__main__":
     print "begin"
-    #content = getdata(1,20)
-    #content = content.decode('utf-8')
-    #print content
-    #dealdata(content)
-    #getcontent(getinfo(252295))
-    f=open('result/f.txt','w')
-    f.write(getcontent(getinfo(252295)))
-    f.close()
+    content = getdata(1,20)
+    content = content.decode('utf-8')
+    removeall()
+    for item in dealdata(content):
+        #savefile(item[2],getcontent(getinfo(item[0])))
+        print "已写入",item[0],item[1],item[2],item[3]
+
+
