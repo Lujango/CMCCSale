@@ -9,3 +9,11 @@ http://b2b.10086.cn/b2b/main/listVendorNoticeResult.html?noticeBean.noticeType=2
 noticeBean.noticeType=2
 
 http://b2b.10086.cn/b2b/main/viewNoticeContent.html?noticeBean.id=252275
+
+已写入 252082 终端公司 GD-20160318-JXJ-Toshiba 50U6600C和43... 2016-3-18
+Traceback (most recent call last):
+  File "C:/Documents and Settings/Administrator/PycharmProjects/CMCCSale/main.py", line 95, in <module>
+    savefile(item[2],html2text(getinfo(item[0]).decode('utf-8')))
+  File "C:/Documents and Settings/Administrator/PycharmProjects/CMCCSale/main.py", line 78, in savefile
+    f = open('result/'+title+'.txt','w')
+IOError: [Errno 2] No such file or directory: u'result/GD-20160318-JXJ-\u6d77\u4fe1LED43K300U/LED49K....txt'
